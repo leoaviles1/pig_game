@@ -66,6 +66,16 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
   }
 });
 
+//Event Listener for Click here button
+document.querySelector(".btn-here").addEventListener("click", function() {
+  document.querySelector(".instructions").style.display = "block";
+});
+
+//Event Listener for Close button
+document.querySelector(".btn-close").addEventListener("click", function() {
+  document.querySelector(".instructions").style.display = "none";
+});
+
 function nextPlayer() {
   activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
   roundScore = 0;

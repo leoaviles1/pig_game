@@ -68,25 +68,23 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 
 //Event Listener for Click here button
 document.querySelector(".btn-here").addEventListener("click", function() {
-  document.querySelector(".instructions").style.display = "block";
+  document.querySelector(".instructions").classList.toggle("show");
 });
 
 //Event Listener for Close button
 document.querySelector(".btn-close").addEventListener("click", function() {
-  document.querySelector(".instructions").style.display = "none";
+  document.querySelector(".instructions").classList.toggle("show");
 });
 
 function nextPlayer() {
   activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
   roundScore = 0;
 
-  document.getElementById("current-0").textContent = "0";
-  document.getElementById("current-1").textContent = "0";
-
-  document.querySelector(".player-0-panel").classList.toggle("active");
-  document.querySelector(".player-1-panel").classList.toggle("active");
-  document.querySelector(".dice0").style.display = "none";
-  document.querySelector(".dice1").style.display = "none";
+  for (let i = 0; i < 2; i++) {
+    document.getElementById("current-" + i).textContent = "0";
+    document.querySelector(".player-" + i + "-panel").classList.toggle("active");
+    document.querySelector(".dice" + i).style.display = "none";
+  }
 }
 
 function newGame() {
@@ -110,20 +108,12 @@ function newGame() {
 }
 
 function clearBoard() {
-  document.querySelector(".dice0").style.display = "none";
-  document.querySelector(".dice1").style.display = "none";
-
-  document.getElementById("score-0").textContent = "0";
-  document.getElementById("score-1").textContent = "0";
-
-  document.getElementById("current-0").textContent = "0";
-  document.getElementById("current-1").textContent = "0";
-
-  document.getElementById("name-0").textContent = "Player 1";
-  document.getElementById("name-1").textContent = "Player 2";
-
-  document.querySelector(".player-0-panel").classList.remove("winner");
-  document.querySelector(".player-1-panel").classList.remove("winner");
-  document.querySelector(".player-0-panel").classList.remove("active");
-  document.querySelector(".player-1-panel").classList.remove("active");
+  for (let i = 0; i < 2; i++) {
+    document.querySelector(".dice" + i).style.display = "none";
+    document.getElementById("score-" + i).textContent = "0";
+    document.getElementById("current-" + i).textContent = "0";
+    document.getElementById("name-" + i).textContent = "Player " + (i + 1);
+    document.querySelector(".player-" + i + "-panel").classList.remove("winner");
+    document.querySelector(".player-" + i + "-panel").classList.remove("active");
+  }
 }

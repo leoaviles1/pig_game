@@ -1,5 +1,5 @@
 
-#GAME RULES:
+# GAME RULES:
 - The game has 2 players, playing in rounds
 - In each turn, a player rolls the two dice as many times as he/she whishes. Each result get added to his current ROUND score.
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
@@ -10,7 +10,7 @@
 
 
 
-##TO START:
+## TO START:
 -Input a winning score between 20-200 in the text box and click NEW GAME
 
 
